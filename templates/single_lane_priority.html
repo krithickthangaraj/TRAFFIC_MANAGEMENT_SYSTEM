@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Lane Priority</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Dashboard Section -->
+    <div class="container mt-5" id="dashboard">
+        <div class="row">
+            <div class="col">
+                <h1>Traffic Monitoring Dashboard</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Lane 1
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ url_for('video_feed', lane='lane1') }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Lane 2
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ url_for('video_feed', lane='lane2') }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Lane 3
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ url_for('video_feed', lane='lane3') }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Lane 4
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ url_for('video_feed', lane='lane4') }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <button class="btn btn-primary" onclick="showSingleLanePriority()">Single Lane Priority Control</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Single Lane Priority Section (Initially Hidden) -->
+    <div class="container mt-5" id="singleLanePriority" style="display: none;">
+        <h1>Single Lane Priority Control</h1>
+        <p>This page allows you to manage traffic by prioritizing a single lane.</p>
+        <button class="btn btn-primary" onclick="goBackToDashboard()">Back to Dashboard</button>
+    </div>
+
+    <script>
+        function showSingleLanePriority() {
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('singleLanePriority').style.display = 'block';
+        }
+
+        function goBackToDashboard() {
+            document.getElementById('singleLanePriority').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+        }
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

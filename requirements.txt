@@ -1,0 +1,12 @@
+Flask
+Flask-Login
+Flask-WTF
+opencv-python-headless
+numpy
+matplotlib
+requests
+Flask
+Flask-WTF
+opencv-python
+numpy
+

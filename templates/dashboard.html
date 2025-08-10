@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>Traffic Dashboard</h1>
+    <div class="stats-container">
+        <div class="stat-box">Cars in traffic: <span>{{ data.cars_in_traffic }}</span></div>
+        <div class="stat-box">Level of service: <span>{{ data.level_of_service }}</span></div>
+        <!-- Additional statistics -->
+    </div>
+    <div id="category-chart"></div>
+    <script>
+        var categoryData = {{ data.category_distribution | tojson }};
+        var trace = {
+            x: Object.keys(categoryData),
+            y: Object.values(categoryData),
+            type: 'bar'
+        };
+        var layout = {
+            title: 'Category Distribution'
+        };
+        Plotly.newPlot('category-chart', [trace], layout);
+    </script>
+    <div class="video-section">
+        {% if filename %}
+        <h2>Uploaded Video:</h2>
+        <video width="640" height="480" controls>
+            <source src="{{ url_for('static', filename='uploads/' + filename) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {% endif %}
+        {% if detected_video %}
+        <h2>Detected Video:</h2>
+        <video width="640" height="480" controls>
+            <source src="{{ url_for('static', filename='uploads/' + detected_video) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
