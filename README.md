@@ -1,6 +1,6 @@
 # Traffic Management System
 
-A computer vision–based traffic monitoring and management system that detects vehicles, manages single-lane priorities, and provides an interactive dashboard for monitoring real-time data.
+AI-Powered Smart Traffic Management System with Real-Time Vehicle Detection and Priority control and Interactive Dashboard
 
 ## 📸 Screenshots
 
